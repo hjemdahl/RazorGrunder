@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moment 1 - @ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+@{
+    DateTime fullDate = DateTime.Now;
+    string date = fullDate.ToString("yyyy/MM/dd");
+}
+<body>
+    <header>
+        <a class="logo" asp-area="" asp-page="/Index">Moment 1</a>
+        <p class="header-date">Dagens datum: @date</p>
+    </header>
+
+    <div class="middle-container">
+        <nav>
+            <ul class="nav-ul">
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-page="/Index">Start</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-page="/Razor">Razor</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-page="/Om_sidan">Om sidan</a>
+                </li>
+            </ul>
+        </nav>
+
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer>
+        <div class="">
+            <p>Av Moa Hjemdahl, kontakta mig via <a class="mail-link" href="mailto:moahjemdahl@outlook.com">moahjemdahl@outlook.com</a></p>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

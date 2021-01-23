@@ -1,0 +1,47 @@
+﻿@page
+@model moment1.Pages.RazorModel
+@{ ViewData["Title"] = "Razor";
+
+    //Variabler för olika format av datum i nutid
+    DateTime fullDateTime = DateTime.Now;
+    string dateAndTime = fullDateTime.ToString("yyyy/MM/dd" + " " + "H:mm:ss");
+    string nameOfDay = fullDateTime.ToString("dddd");
+
+    //Lista över kurser
+    List<string> courses = new List<string>();
+
+    courses.Add("DT057G, Webbutveckling I");
+    courses.Add("DT084G, Introduktion till programmering med JavaScript");
+    courses.Add("DT163G, Digital bildbehandling för webb");
+    courses.Add("GD008G, Typografi och form för webb");
+    courses.Add("DT003G, Databaser");
+    courses.Add("DT093G, Webbutveckling II");
+    courses.Add("DT068G, Webbanvändbarhet");
+    courses.Add("DT152G, Webbdesign för CMS");
+    courses.Add("DT173G, Webbutveckling III");
+    courses.Add("IK060G, Projektledning");
+    courses.Add("DT071G, Programmering i C#");
+}
+
+<div>
+    <h1 class="headline">Razor</h1>
+    <p>Datum och klockslag: @dateAndTime</p>
+
+    <!-- Om det är måndag eller inte -->
+    @if (nameOfDay == "Monday")
+    {
+        <p>Idag är det måndag.</p>
+    } else
+    {
+        <p>Idag är det inte måndag.</p>
+    }
+
+    <h3>Kurser jag läst:</h3>
+    <!-- Utskrift av kurser -->
+    <ul class="courses-ul">
+        @foreach (string course in courses)
+        {
+            <li>@course</li>
+        }
+    </ul>
+</div>
